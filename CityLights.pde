@@ -1,6 +1,6 @@
 /*
  * Lucas Sampaio Dias
- * Copyright (c) 2018.
+ * Copyright (c) 2019.
  * Instituto de Informática (UFG)
  * Creative Commons Attribution 4.0 International License.
  */
@@ -8,7 +8,7 @@
 PImage city;
 PImage sprite;
 int minLight = 240;
-ArrayList<Spawner> spawns = new ArrayList<Spawner>();
+ArrayList<Spawner> spawners = new ArrayList<Spawner>();
 
 void setup() {
   size(590, 332, P2D);
@@ -24,7 +24,7 @@ void setup() {
         s.ps = ps;
         s.posX = x;
         s.posY = y;
-        spawns.add(s);
+        spawners.add(s);
       }
     }
   }
@@ -37,7 +37,7 @@ void setup() {
 
 void draw() {
  image(city, 0, 0);
- for(Spawner s : spawns) {
+ for(Spawner s : spawners) {
   s.ps.update();
   s.ps.display();
   s.ps.setEmitter(s.posX, s.posY);
