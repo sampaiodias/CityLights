@@ -5,12 +5,13 @@ class ParticleSystem {
 
   PShape particleShape;
 
-  ParticleSystem(int n) {
+  ParticleSystem(int n, color c) {
     particles = new ArrayList<Particle>();
     particleShape = createShape(PShape.GROUP);
 
     for (int i = 0; i < n; i++) {
       Particle p = new Particle();
+      p.c = c;
       particles.add(p);
       particleShape.addChild(p.getShape());
     }

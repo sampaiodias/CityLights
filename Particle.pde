@@ -9,6 +9,8 @@ class Particle {
   float partSize;
   
   PVector gravity = new PVector(0,.01);
+  
+  color c;
 
 
   Particle() {
@@ -56,7 +58,7 @@ class Particle {
     lifespan = lifespan - 1;
     velocity.add(gravity);
     
-    part.setTint(color(255,lifespan));
+    part.setTint(c);
     part.translate(velocity.x, velocity.y);
   }
 }
