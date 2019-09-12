@@ -18,8 +18,8 @@ void setup() {
   for(int x = 0; x < 590; x++) {
     for(int y = 0; y < 332; y++) {
       color c = city.get(x, y);
-      if(red(c) > minLight && green(c) > minLight && blue(c) > minLight) {
-        ParticleSystem ps = new ParticleSystem(10);
+      if(isRed(c) || isYellow(c) || isWhite(c)) {
+        ParticleSystem ps = new ParticleSystem(10, c);
         Spawner s = new Spawner();
         s.ps = ps;
         s.posX = x;
@@ -47,4 +47,16 @@ void draw() {
 class Spawner {
   int posX, posY;
   ParticleSystem ps;
+}
+
+boolean isRed(color c) {
+  return (red(c) > minLight && green(c) > 150 && blue(c) < 150);
+}
+
+boolean isYellow(color c) {
+  return (red(c) > minLight && green(c) < 150 && blue(c) < 150);
+}
+
+boolean isWhite(color c) {
+  return (red(c) > minLight && green(c) > minLight && blue(c) > minLight);
 }
